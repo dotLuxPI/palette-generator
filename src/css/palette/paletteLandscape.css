@@ -1,0 +1,38 @@
+@media screen and (aspect-ratio > 1/1) {
+
+    #palette-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    .first {
+        border-radius: 12px 0 0 12px;
+    }
+    .last {
+        border-radius: 0 12px 12px 0;
+    }
+
+    .palette-segment {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 3vw;
+        height: 3vw;
+        
+        padding: 5vw;
+    }
+
+    .palette-segment-color {
+        font-size: 1.5vw;
+        font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        filter: invert(75%);
+    }
+}

@@ -1,0 +1,20 @@
+@media screen and (aspect-ratio > 1/1) {
+    #creditsContainer {
+        position: absolute;
+        bottom: 3vh;
+        left: 3vw;
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 0.85vw;
+        font-weight: 600;
+        color: #f5f5f5;
+    }
+
+    #creditsContainer > p > a:visited, 
+    #creditsContainer > p > a:active, 
+    #creditsContainer > p > a::before, 
+    #creditsContainer > p > a::after,
+    #creditsContainer > p > a:link,
+    #creditsContainer > p > a {
+        color: #FAAABE
+    }
+}

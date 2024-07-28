@@ -1,0 +1,37 @@
+@media screen and (aspect-ratio > 1/1) {
+    #shortcut-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #shortcut-wrapper > p {
+        margin: 0;
+
+        color: var(--placeholder);
+        font-size: 1.2vw;
+        font-weight: 500;
+        font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+
+        -webkit-animation: glow 2s ease-in-out infinite alternate;
+        -moz-animation: glow 2s ease-in-out infinite alternate;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    #shortcut-button {
+        background: #313131;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        border-radius: 5px;
+        padding: 0.5vh 0.5vw;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0;
+    }
+    to {
+        text-shadow: 0 0 10px #ffffff80, 0 0 20px #eeeeee80, 0 0 30px #dddddd80, 0 0 40px #cccccc80, 0 0 50px #bbbbbb80, 0 0 60px #aaaaaa80, 0 0 70px #99999980, 0 0 80px #88888880, 0 0 90px #77777780;
+    }
+}
