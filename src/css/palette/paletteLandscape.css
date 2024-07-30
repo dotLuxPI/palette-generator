@@ -30,30 +30,11 @@
     }
 
     .palette-segment-color {
+        color: var(--text);
         font-size: 1.5vw;
         font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
         font-weight: 700;
-        filter: invert(75%);
-    }
-
-    .alert-progress-bar {
-        background-color: var(--accent);
-        height: 1vh;
-        width: 100%;
-
-        position: absolute;
-        bottom: 0;
-        border-radius: 12px;
-
-        animation: progressBar 3s linear;
-    }
-}
-
-@keyframes progressBar {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
+        text-shadow: 1px 0 #121212, -1px 0 #121212, 0 1px #121212, 0 -1px #121212,
+            1px 1px #121212, -1px -1px #121212, 1px -1px #121212, -1px 1px #121212;
     }
 }

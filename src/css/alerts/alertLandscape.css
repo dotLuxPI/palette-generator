@@ -12,8 +12,6 @@
         max-width: 39vw;
         padding: 3vh 3vw;
 
-
-        
         position: fixed;
         top: 50%;
         left: 50%;
@@ -35,5 +33,26 @@
         font-family: 'comfortaa', Arial, Helvetica, sans-serif;
         font-weight: 400;
         text-align: center;
+    }
+    
+    .alert-progress-bar {
+        background-color: var(--accent);
+        height: 1vh;
+        width: 100%;
+
+        position: absolute;
+        bottom: 0;
+        border-radius: 12px;
+
+        animation: progressBar 3s linear;
+    }
+}
+
+@keyframes progressBar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
     }
 }

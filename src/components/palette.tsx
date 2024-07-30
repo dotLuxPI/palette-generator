@@ -5,7 +5,7 @@
 function PaletteSegment(color: string, position: number): JSX.Element {
     return (
         <div className={classAssignment(position)} style={{backgroundColor: color}} data-clipboard-text="I'll be copied">
-            <div className="palette-segment-color" style={{color: color}}>{color}</div>
+            <div className="palette-segment-color">{color}</div>
         </div>
     )
 }
