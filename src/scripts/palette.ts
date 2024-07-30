@@ -8,6 +8,8 @@ const hexRegex = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 let palette: number[][] = [];
 let paletteSegments: HTMLCollectionOf<HTMLDivElement>;
 
+let lock = false;
+
 // initializes the palette segments when the DOM is loaded
 if (typeof window !== "undefined") {
     document.addEventListener("DOMContentLoaded", () => {
@@ -23,18 +25,26 @@ if (typeof window !== "undefined") {
  */
 export async function generatePalette(): Promise<void> {
 
+    if (lock) {
+        console.log("LOCKED");
+        return;
+    }
+
+    lock = true;
+
     const hexColor: string = (document.getElementById("palette-input") as HTMLInputElement).value;
     const rgbColor: number[] = toRGB(hexColor);
 
     if(!hexRegex.test(hexColor)) {
-        alert(hexColor + " is an invalid hex color. Enter a valid color.");
         return;
     }
 
     palette = await fetchPalette(rgbColor);
     const hexPalette: string[] = palette.map(c => toHex(c));
 
-    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? null : console.log("FAIL");
+    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? console.log("SUCCESS") : console.log("FAIL");
+
+    lock = false;
 }
 
 /**
@@ -43,16 +53,25 @@ export async function generatePalette(): Promise<void> {
  */
 export async function generateRandomPalette(): Promise<void> {
 
+    if (lock) {
+        console.log("LOCKED");
+        return;
+    }
+
+    lock = true;
+
     const randomColor = Array.from({length: 3}, () => Math.floor(Math.random() * 256));
     const input: HTMLInputElement = (document.getElementById("palette-input") as HTMLInputElement);
 
     palette = await fetchPalette(randomColor);
     const hexPalette: string[] = palette.map(c => toHex(c));
 
-    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? null : console.log("FAIL");
+    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? console.log("SUCCESS") : console.log("FAIL");
 
     // change the input value to the random color
-    input.value = toHex(randomColor);    
+    input.value = toHex(randomColor);  
+    
+    lock = false;
 }
 
 /**
@@ -63,7 +82,7 @@ function fetchPalette(c1: number[]): Promise<number[][]> {
     return new Promise((resolve, reject) => {
         const data = {
             model : "default",
-            input : [c1, "N", "N", "N", "N"]
+            input : [c1, 'N', 'N', 'N', 'N']
         }
 
         const http = new XMLHttpRequest();
@@ -119,7 +138,6 @@ function changeSegmentColors(palette: string[], segments: HTMLDivElement[]): boo
 
     // segments and palette are un-aligned
     if (segments.length !== palette.length) {
-        alert("something went wrong, please retry or refresh the page");
         return false;
     }
 

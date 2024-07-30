@@ -6,7 +6,7 @@
         font-family: 'Comfortaa', sans-serif;
         font-size: 0.85vw;
         font-weight: 600;
-        color: #f5f5f5;
+        color: var(--text);
     }
 
     #creditsContainer > p > a:visited, 
@@ -15,6 +15,6 @@
     #creditsContainer > p > a::after,
     #creditsContainer > p > a:link,
     #creditsContainer > p > a {
-        color: #FAAABE
+        color: var(--accent);
     }
 }

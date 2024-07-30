@@ -20,6 +20,9 @@ import './css/shortcut/shortcutPortrait.css';
 import './css/credits/creditsLandscape.css';
 import './css/credits/creditsPortrait.css';
 
+import './css/alerts/alertLandscape.css';
+import './css/alerts/alertPortrait.css';
+
 
 
 export default function App(): JSX.Element {

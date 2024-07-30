@@ -1,0 +1,39 @@
+@media screen and (aspect-ratio > 1/1) {
+    .alert {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+
+        background-color: rgba(49, 49, 49, 0.9);
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+        max-width: 39vw;
+        padding: 3vh 3vw;
+
+
+        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .alert-title {
+        font-size: 2.5vw;
+        color: var(--text);
+        margin-bottom: 1vh;
+        font-family: 'comfortaa', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+    }
+
+    .alert-text {
+        font-size: 1.5vw;
+        color: var(--placeholder);
+        font-family: 'comfortaa', Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        text-align: center;
+    }
+}
