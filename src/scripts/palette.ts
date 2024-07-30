@@ -144,12 +144,11 @@ function changeSegmentColors(palette: string[], segments: HTMLDivElement[]): boo
     // updates the color of the segment
     segments[0].style.backgroundColor = "#"+palette[0];
 
-    // updates the text and color of the segment
+    // updates the text of the segment
     if (segments[0].firstChild) {
         const text = segments[0].firstChild as HTMLElement;
         
         text.textContent = "#" + (palette[0].toUpperCase());
-        text.style.color = "#" + (palette[0].toUpperCase());
     }
 
     // pass recoursively to the next segment
