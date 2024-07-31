@@ -31,7 +31,7 @@
 
     .palette-segment-color {
         color: var(--text);
-        font-size: 3vw;
+        font-size: 2.5vw;
         font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
         font-weight: 700;
         text-shadow: 1px 0 #121212, -1px 0 #121212, 0 1px #121212, 0 -1px #121212,
