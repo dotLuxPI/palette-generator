@@ -4,10 +4,12 @@ import sleep from "./sleep";
 let lock = false;
 
 /**
+ * @file alerts.ts
+ * @param title the title of the alert
  * @param msg the body of the message
  * @returns a promise that resolves after the alert is removed
  */
-export async function error(msg: string): Promise<void> {
+export async function error(title: string, msg: string): Promise<void> {
 
     if (lock) {
         return;
@@ -18,11 +20,10 @@ export async function error(msg: string): Promise<void> {
     const alert = document.createElement('div');
     alert.className = 'alert alert-error';
 
-    const title = document.createElement('h2');
-    title.className = 'alert-title';
-    title.innerHTML = 'Ops... Something went wrong!';
-    alert.prepend(title);
-
+    const alertTitle = document.createElement('h2');
+    alertTitle.className = 'alert-title';
+    alertTitle.innerHTML = title;
+    alert.prepend(alertTitle);
 
     const text = document.createElement('p');
     text.className = 'alert-text';
@@ -42,6 +43,47 @@ export async function error(msg: string): Promise<void> {
     }
 
     await sleep(3000);
+
+    // Remove alert
+    alert.remove();
+
+    // Remove blur
+    if (contentElement) {
+        contentElement.style.filter = 'none';
+    }
+
+    lock = false;
+}
+
+/**
+ * @file alerts.ts
+ * @returns a promise that resolves after the alert is removed
+ */
+export async function copied(): Promise<void> {
+    
+    if (lock) {
+        return;
+    }
+
+    lock = true;
+
+    const alert = document.createElement('div');
+    alert.className = 'alert alert-copy';
+
+    const alertTitle = document.createElement('h2');
+    alertTitle.className = 'alert-title';
+    alertTitle.innerHTML = 'Copied to clipboard!';
+    alert.prepend(alertTitle);
+
+    document.body.appendChild(alert);
+
+    // Blur everything except the alert
+    const contentElement = document.getElementById('content');
+    if (contentElement) {
+        contentElement.style.filter = 'blur(5px)';
+    }
+
+    await sleep(850);
 
     // Remove alert
     alert.remove();

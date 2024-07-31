@@ -8,6 +8,7 @@ const hexRegex = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 let palette: number[][] = [];
 let paletteSegments: HTMLCollectionOf<HTMLDivElement>;
 
+// lock to prevent multiple requests
 let lock = false;
 
 // initializes the palette segments when the DOM is loaded
@@ -26,7 +27,6 @@ if (typeof window !== "undefined") {
 export async function generatePalette(): Promise<void> {
 
     if (lock) {
-        console.log("LOCKED");
         return;
     }
 
@@ -42,7 +42,7 @@ export async function generatePalette(): Promise<void> {
     palette = await fetchPalette(rgbColor);
     const hexPalette: string[] = palette.map(c => toHex(c));
 
-    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? console.log("SUCCESS") : console.log("FAIL");
+    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? null : console.log("FAIL");
 
     lock = false;
 }
@@ -54,7 +54,6 @@ export async function generatePalette(): Promise<void> {
 export async function generateRandomPalette(): Promise<void> {
 
     if (lock) {
-        console.log("LOCKED");
         return;
     }
 
@@ -66,7 +65,7 @@ export async function generateRandomPalette(): Promise<void> {
     palette = await fetchPalette(randomColor);
     const hexPalette: string[] = palette.map(c => toHex(c));
 
-    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? console.log("SUCCESS") : console.log("FAIL");
+    changeSegmentColors(hexPalette, Array.from(paletteSegments)) ? null : console.log("FAIL");
 
     // change the input value to the random color
     input.value = toHex(randomColor);  
@@ -125,7 +124,6 @@ function toRGB(color: string): number[] {
 }
 
 /**
- * 
  * @param palette a string containing the hex values for the five colors composing the palette
  * @param segments contains the references to the DOM elements that represent segments the palette
  * @returns true if every color is successfully updated, false otherwise

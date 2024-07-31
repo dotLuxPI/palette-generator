@@ -1,5 +1,6 @@
 import { error } from "./alerts";
 import { generatePalette, generateRandomPalette } from "./palette";
+import sleep from "./sleep";
 
 /**
  * @file triggers.ts
@@ -16,7 +17,7 @@ export default function gen(requireInput: boolean): Promise<void> {
             });
         } else {
             return new Promise((resolve) => {
-                error('The code inserted is not a valid color.<br>Please enter a valid color code.').then(() => resolve());
+                error('Ops... Something went wrong!', 'The code inserted is not a valid color.<br>Please enter a valid color code.').then(() => resolve());
             });
         }
     } else {
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     while (!document.getElementById("palette-input") || !document.getElementsByClassName("last")[0]) {
-        await new Promise((resolve) => setTimeout(resolve, 100));
+        await sleep(100);
     }
 
     gen(false);
