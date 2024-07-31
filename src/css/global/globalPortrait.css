@@ -2,6 +2,11 @@
 @import '../root.css';
 
 @media screen and (aspect-ratio < 1/1) {
+
+    * {
+        overflow: hidden;
+    }
+
     html, body {
         border: 0;
         margin: 0;
