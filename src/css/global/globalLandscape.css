@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import '../root.css';
 
-@media screen and (aspect-ratio > 1/1) {
+@media screen and (aspect-ratio >= 1/1) {
     html, body {
         border: 0;
         margin: 0;

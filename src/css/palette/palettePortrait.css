@@ -1,0 +1,40 @@
+@media screen and (aspect-ratio < 1/1) {
+
+    #palette-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    .first {
+        border-radius: 8px 0 0 8px;
+    }
+    .last {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .palette-segment {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 13vw;
+        height: 13vw;
+        
+        padding: 2vw;
+    }
+
+    .palette-segment-color {
+        color: var(--text);
+        font-size: 3vw;
+        font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        text-shadow: 1px 0 #121212, -1px 0 #121212, 0 1px #121212, 0 -1px #121212,
+            1px 1px #121212, -1px -1px #121212, 1px -1px #121212, -1px 1px #121212;
+    }
+}

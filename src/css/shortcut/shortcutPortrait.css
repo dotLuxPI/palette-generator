@@ -1,0 +1,6 @@
+/* keyboard shortcuts are not available on mobile devices */
+@media screen and (aspect-ratio < 1/1) {
+    #shortcut-wrapper {
+        display: none;
+    }
+}
