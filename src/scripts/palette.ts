@@ -1,5 +1,5 @@
-// API url
-const url = "http://colormind.io/api/";
+// CORS proxy + API url
+const url = "https://corsproxy.io/?" + "http://colormind.io/api/";
 
 // HEX color string regex
 const hexRegex = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
