@@ -53,8 +53,6 @@ export async function generatePalette(): Promise<void> {
  */
 export async function generateRandomPalette(): Promise<void> {
 
-    console.log(url);
-
     if (lock) {
         return;
     }
